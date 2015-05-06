@@ -28,7 +28,10 @@ Table of Contents
 -  **Which version control systems are you familiar with?**
 -  **Can you describe your workflow when you create a web page?**
 -  **If you have 5 different stylesheets, how would you best integrate them into the site?**
--  **Can you describe the difference between progressive enhancement and graceful degradation?**
+-  **Can you describe [the difference between progressive enhancement and graceful degradation](https://stackoverflow.com/questions/2550431/what-is-the-difference-between-progressive-enhancement-and-graceful-degradation)?**
+    > **Graceful Degradation** starts at a ideal user experience level and decreases depending on user agent capabilities down to a minimum level, catering for agents that don't support certain features used by the baseline.
+
+    > **Progressive Enhancement** starts at a broad minimum user experience and increases depending on user agent capabilities up to a more capable level, catering for agents that support more advanced features than the baseline.
 -  **How would you optimize a website's assets/resources?**
 -  **How many resources will a browser download from a given domain at a time?**
   -  **What are the exceptions?**
@@ -105,6 +108,22 @@ Table of Contents
 
 -  **Explain event delegation**
 -  **Explain how `this` works in JavaScript**
+    - doesn't matter where the fx is declared, only where it's called
+
+        ```js
+        function foo() {
+            console.log(this.bar);
+        }
+
+        var bar = "bar1";
+        var t2  = { bar: "bar2", foo: foo };
+        var t3  = { bar: "bar3", foo: foo };
+
+        foo();    // "bar1"
+        t2.foo(); // "bar2"
+        t3.foo(); // "bar3"
+        ```
+
 -  **Explain how prototypal inheritance works**
 -  **[What do you think of AMD vs CommonJS?](https://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs)**
 -  **[Explain why the following doesn't work as an IIFE: `function foo(){}();`](http://benalman.com/news/2010/11/immediately-invoked-function-expression/).**
@@ -208,15 +227,12 @@ A closure is a special kind of object that combines two things: a function, and 
 
   -  **[Same-origin policy](http://javascript.info/tutorial/same-origin-security-policy):** restricts how a document or script loaded from one origin can interact with a resource from another origin.
     -  used as a means to prevent some of the Cross-site Request Forgery attacks.
-
 -  **Make this work:**
 
   ```js
   duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 
-
   // SOLUTION
-
 
   function duplicate(args) {
       return args.concat(args)
@@ -280,8 +296,9 @@ A closure is a special kind of object that combines two things: a function, and 
 #### NETWORK QUESTIONS:
 
 -  **Traditionally, why has it been better to serve site assets from multiple domains?**
+  - [Serving assets from multiple domains can increase the number of assets a browser can download in parallel.](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/)
 -  **Do your best to describe the process from the time you type in a website's URL to it finishing loading on your screen.**
--  **What are the differences between Long-Polling, Websockets and Server-Sent Events?**
+-  **[What are the differences between Long-Polling, Websockets and Server-Sent Events?](https://stackoverflow.com/questions/11077857/what-are-long-polling-websockets-server-sent-events-sse-and-comet)**
 -  **Explain the following request and response headers:**
   -  **Diff. between Expires, Date, Age and If-Modified-...**
   -  **Do Not Track**
@@ -290,6 +307,9 @@ A closure is a special kind of object that combines two things: a function, and 
   -  **ETag**
   -  **X-Frame-Options**
 -  **What are HTTP actions? List all HTTP actions that you know, and explain them.**
+  1. `GET`
+  1. `POST`
+  1. `PUT`
 
 #### CODING QUESTIONS:
 
@@ -444,8 +464,11 @@ foo.push(2);
     foo("bar");
     ```
 
+- [What is the difference between event bubbling and capturing?](https://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing)
+
 
 #### OTHER:
 
--  http://perfectionkills.com/javascript-quiz/
--  http://www.testdome.com/Programming-Tests/Html-Css-JavaScript/16
+-  [perfectionkills.com/javascript-quiz/](http://perfectionkills.com/javascript-quiz/)
+-  [testdome.com/Programming-Tests/Html-Css-JavaScript/16](http://www.testdome.com/Programming-Tests/Html-Css-JavaScript/16)
+- [youmightnotneedjquery.com/](http://youmightnotneedjquery.com/)
